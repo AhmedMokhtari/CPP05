@@ -26,6 +26,7 @@ class Bureaucrat{
         int getGrade() const;
         void increment();
         void decrement();
-        void signForm(AForm f);
+        void signForm(AForm &f);
+        void executeForm(AForm const & form) const;
 };  
 std::ostream& operator<<(std::ostream &stream, Bureaucrat &b);

@@ -74,5 +74,6 @@ void Bureaucrat::signForm(Form f)
         std::cout << name <<" couldn’t sign " << f.getName() << " because grade is too Low." << std::endl;
         return;
     }
+    f.beSigned(*this);
     std::cout << name <<"  signed " << f.getName() << std::endl;
 }

@@ -30,17 +30,21 @@ const char *AForm::GradeTooHighException::what() const throw(){
     return "Grade too High ";
 }
 
+const char *AForm::NoSignException::what() const throw(){
+    return "The Form not Signed for Excute it ";
+}
+
 const char *AForm::GradeTooLowException::what() const throw(){
     return "Grade too Low ";
 }
 
-void AForm::beSigned(Bureaucrat b){
-    b.signForm(*this);
+void AForm::beSigned(Bureaucrat &b){
     if (b.getGrade() > this->grade_sign)
         throw GradeTooLowException();
+    std::cout << "Form has been Signed " << std::endl;
     is_sign = true;
 }
-
+    
 const std::string AForm::getName() const{
     return this->name;
 }
@@ -55,4 +59,11 @@ int AForm::getGrade_sign() const{
 
 bool AForm::getIsSign() const{
     return this->is_sign;
+}
+
+void AForm::check_execute(Bureaucrat const & executor) const{
+    if (!this->is_sign)
+        throw NoSignException();
+    if (executor.getGrade() > this->grade_ex)
+        throw GradeTooLowException();
 }

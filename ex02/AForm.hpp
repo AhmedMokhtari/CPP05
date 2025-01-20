@@ -22,8 +22,13 @@ class AForm{
             public:
                 const char *what() const throw();
         };
-        virtual void beSigned(Bureaucrat b) = 0;
-        virtual execute(Bureaucrat const & executor) const = 0;
+        class NoSignException : public :: std::exception{
+            public:
+                const char *what() const throw();
+        };
+        virtual void beSigned(Bureaucrat &b);
+        virtual void execute(Bureaucrat const & executor) const = 0;
+        void check_execute(Bureaucrat const & executor) const;
         const std::string getName() const;
         int getGrade_ex() const;
         int getGrade_sign() const;
