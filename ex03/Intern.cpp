@@ -40,8 +40,9 @@ AForm *Intern::makeForm(const std::string &name, const std::string &type){
         if (names[i] == name)
         {
             try{
-                // throw std::bad_alloc();
-                return (this->*funcs[i])(type);
+                AForm *t = (this->*funcs[i])(type);
+                std::cout << "Intern Create " << name << std::endl;
+                return t;
             }catch(const std::exception &e)
             {
                 std::cerr << e.what() << std::endl;

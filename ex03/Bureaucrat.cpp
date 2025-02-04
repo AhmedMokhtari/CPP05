@@ -15,7 +15,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cp):name(cp.name), grade(cp.grade)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &cp){
     if (this != &cp)
     {
-        // this->name = cp.name;
         this->grade = cp.grade;       
     }
     return *this;
@@ -24,7 +23,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &cp){
 Bureaucrat::Bureaucrat(const std::string &name, int grade):name(name){
     if (grade > 150)
         throw GradeTooLowException();
-    if (grade < 0)
+    if (grade < 1)
         throw GradeTooHighException();
     this->grade = grade;
 }

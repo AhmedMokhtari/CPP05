@@ -24,7 +24,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &cp){
 Bureaucrat::Bureaucrat(const std::string &name, int grade):name(name){
     if (grade > 150)
         throw GradeTooLowException();
-    if (grade < 0)
+    if (grade < 1)
         throw GradeTooHighException();
     this->grade = grade;
 }

@@ -1,11 +1,11 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm():AForm("no_name", 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm():AForm("ShrubberyCreationForm", 145, 137){
     target = "No_Target";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target):AForm("no_name", 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target):AForm("ShrubberyCreationForm", 145, 137){
     this->target = target;
 }
 

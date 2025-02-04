@@ -35,10 +35,10 @@ const char *Form::GradeTooLowException::what() const throw(){
 }
 
 void Form::beSigned(Bureaucrat b){
-    b.signForm(*this);
     if (b.getGrade() > this->grade_sign)
         throw GradeTooLowException();
     is_sign = true;
+    std::cout << "Form Has been signed \n";
 }
 
 const std::string Form::getName() const{

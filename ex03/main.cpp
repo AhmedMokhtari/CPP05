@@ -7,7 +7,7 @@
 
 int main()
 {
-    Bureaucrat b("Bu", 0);
+    Bureaucrat b("Bu", 1);
     Intern someRandomIntern;
     AForm* robot;
     AForm* shrubbery;
@@ -20,46 +20,36 @@ int main()
 
     invalid = someRandomIntern.makeForm("adsd", "Tets");
 
-    if(invalid)
+    try{
+        if(invalid)
+        {
+            invalid->beSigned(b);
+            invalid->execute(b);
+        }
+
+        if (robot)
+        {
+            b.signForm(*robot);
+            robot->execute(b);
+        }
+
+        if (shrubbery){
+            b.signForm(*shrubbery);
+            shrubbery->execute(b);
+        }
+
+        if (president){
+            b.signForm(*president);
+            president->execute(b);
+        }
+    }
+    catch(std::exception &e)
     {
-        invalid->beSigned(b);
-        invalid->execute(b);
-    }
-
-    if (robot)
-    {
-        b.signForm(*robot);
-        robot->execute(b);
-    }
-
-    if (shrubbery){
-        b.signForm(*shrubbery);
-        shrubbery->execute(b);
-    }
-
-    if (president){
-        b.signForm(*president);
-        president->execute(b);
+        std::cout << e.what() << std::endl;
     }
 
     delete robot;
     delete shrubbery;
     delete president;
     delete invalid;
-
-    // Bureaucrat b("b ", 69);
-
-
-
-
-    // Form f("form ", 10, 10);
-    // Form f1("form1 ", 10, 10);
-
-    // f.beSigned(a);
-    // try{
-    //     f1.beSigned(b);
-    // }
-    // catch(std::exception &e){
-    //     std::cout << e.what() << std::endl;
-    // }
 }

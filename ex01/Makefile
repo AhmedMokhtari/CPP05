@@ -2,7 +2,7 @@ NAME = BureauCrat
 
 OBJ = main.o Bureaucrat.o  Form.o
 
-CPPFLAG = -Wall -Wextra -Werror -std=c++98
+CPPFLAG = -Wall -Wextra -Werror -std=c++98 
 
 all : $(NAME)
 

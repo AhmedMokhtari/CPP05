@@ -1,10 +1,10 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
-RobotomyRequestForm::RobotomyRequestForm():AForm("no_name", 72, 45){
+RobotomyRequestForm::RobotomyRequestForm():AForm("RobotomyRequestForm", 72, 45){
     target = "No_Target";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target):AForm("no_name", 72, 45){
+RobotomyRequestForm::RobotomyRequestForm(const std::string target):AForm("RobotomyRequestForm", 72, 45){
     this->target = target;
 }
 

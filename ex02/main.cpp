@@ -5,33 +5,31 @@
 #include "AForm.hpp"
 int main()
 {
-    Bureaucrat a("a ", 5);
+    Bureaucrat a("a ", 6);
+    Bureaucrat b("a ", 3);
     
     RobotomyRequestForm R("Robot");
+    RobotomyRequestForm R1("Robot");
+    PresidentialPardonForm P("Presidnet");
+    PresidentialPardonForm P1("Presidnet1");
     ShrubberyCreationForm S("Shrubbery");
-    S.beSigned(a);
-    R.beSigned(a);
-    // std::terminate();
     try{
+        S.beSigned(a);
+        R.beSigned(a);
+        P.beSigned(a);
+        P1.beSigned(b);
         S.execute(a);
         R.execute(a);
+        P.execute(b);
+        P.execute(a);
     }catch(const std::exception &e){
         std::cout << e.what() <<std::endl;
     }
 
-    // Bureaucrat b("b ", 69);
-
-
-
-
-    // Form f("form ", 10, 10);
-    // Form f1("form1 ", 10, 10);
-
-    // f.beSigned(a);
-    // try{
-    //     f1.beSigned(b);
-    // }
-    // catch(std::exception &e){
-    //     std::cout << e.what() << std::endl;
-    // }
+    try{
+        R1.execute(b);
+    }catch(const std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
